@@ -13,10 +13,10 @@
 
 #### 2. Создать именованный пайп (named pipe). Вывести в файл через созданный pipe вывод команды `ss -plnt`
 ```sh
-[root@My-server ~]# mkfifo my_pipe 
-[root@My-server ~]# ss -plnt > my_pipe &
+[root@My-server ~] mkfifo my_pipe 
+[root@My-server ~] ss -plnt > my_pipe &
 [1] 24846
-[root@My-server ~]# cat my_pipe > output.txt
+[root@My-server ~] cat my_pipe > output.txt
 [1]+  Done                    ss -plnt > my_pipe
 ```
 #### 3. При помощи именованного пайпа заархивировать всё, что в него отправляем. Например, содержимое файла `/var/log/messages`. На выходе получить архив tar или любой другой
@@ -30,12 +30,12 @@ archive_pipe  systemd-private-a7e4f92a3da84880b95ad16070581ead-chronyd.service-I
 ```
 #### 4. Вывести дату в unixtime. На вход команды `date` через пайп подать свой формат выводимой даты
 ```sh
-[root@My-server ~]# date +%s | xargs -I{} date -d @{} +"%d-%m-%Y"
+[root@My-server ~] date +%s | xargs -I{} date -d @{} +"%d-%m-%Y"
 12-11-2024
 ```
 #### 5. При помощи HEREDOC записать в файл многострочное сообщение
 ```sh
-[root@My-server ~]# cat > myfile.txt << END
+[root@My-server ~] cat > myfile.txt << END
 > Мой многострочный файл
 > Строка 1
 > Строка 2
