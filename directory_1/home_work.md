@@ -25,7 +25,7 @@
 [root@My-server ~] cat /var/log/messages > /tmp/archive_pipe
 [root@My-server ~] cd /tmp
 [root@My-server tmp] ls
-archive_pipe  systemd-private-a7e4f92a3da84880b95ad16070581ead-chronyd.service-IlYHLj
+archive_pipe  messages_archive.tar.gz  systemd-private-a7e4f92a3da84880b95ad16070581ead-chronyd.service-IlYHLj
 ```
 #### 4. Вывести дату в unixtime. На вход команды `date` через пайп подать свой формат выводимой даты
 ```sh
