@@ -6,8 +6,7 @@
 
 #### 1. Узнать IP-адрес интерфейса, подключенного к сети Интернет
 ```sh
-[root@My-server ~] ip a | grep inet
-    inet 127.0.0.1/8 scope host lo
+[root@My-server ~] ip addr show | grep 'inet ' | grep -v 127.0.0.1
     inet 78.140.243.62/24 brd 78.140.243.255 scope global noprefixroute enp0s5
 ```
 
@@ -30,8 +29,8 @@ archive_pipe  systemd-private-a7e4f92a3da84880b95ad16070581ead-chronyd.service-I
 ```
 #### 4. Вывести дату в unixtime. На вход команды `date` через пайп подать свой формат выводимой даты
 ```sh
-[root@My-server ~] date +%s | xargs -I{} date -d @{} +"%d-%m-%Y"
-12-11-2024
+[root@My-server ~] date -d "2024-11-18 12:00:00 UTC" +%s
+1731931200
 ```
 #### 5. При помощи HEREDOC записать в файл многострочное сообщение
 ```sh
